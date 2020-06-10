@@ -1,0 +1,16 @@
+PODS:
+  - PagedLists (0.1.0)
+
+DEPENDENCIES:
+  - PagedLists (from `../`)
+
+EXTERNAL SOURCES:
+  PagedLists:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PagedLists: 9d95f8d3165cc22f309eb027e67355d78796822c
+
+PODFILE CHECKSUM: f80c97614957deecc64e4ae24c2d31b4e19377da
+
+COCOAPODS: 1.9.1
