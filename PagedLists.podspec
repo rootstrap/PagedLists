@@ -1,42 +1,25 @@
-#
-# Be sure to run `pod lib lint PagedLists.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'PagedLists'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of PagedLists.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary          = 'Paged UITableView and UICollectionView for iOS.'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  Custom UITableView and UICollectionView classes to easily handle pagination.
+  Mutiple scrolling direction pagination supported.
+  Uses delegation to load content from your desired source.
                        DESC
 
-  s.homepage         = 'https://github.com/German Lopez/PagedLists'
+  s.homepage         = 'https://github.com/rootstrap/PagedLists'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'German Lopez' => 'german@rootstrap.com' }
-  s.source           = { :git => 'https://github.com/German Lopez/PagedLists.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/rootstrap/PagedLists.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://www.rootstrap.com/'
+  
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.3'
 
   s.source_files = 'PagedLists/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'PagedLists' => ['PagedLists/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
+  s.swift_version = '5.2'
 end
