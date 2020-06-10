@@ -29,7 +29,7 @@
 /* Begin PBXFileReference section */
 		095B52CF29F69FF372B3B833 /* Pods_PagedLists_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PagedLists_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		331BDE23EF4C895726967F07 /* Pods-PagedLists_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PagedLists_Example.release.xcconfig"; path = "Target Support Files/Pods-PagedLists_Example/Pods-PagedLists_Example.release.xcconfig"; sourceTree = "<group>"; };
-		4A26845499B9597435E23468 /* PagedLists.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PagedLists.podspec; path = ../PagedLists.podspec; sourceTree = "<group>"; };
+		4A26845499B9597435E23468 /* PagedLists.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PagedLists.podspec; path = ../PagedLists.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACD01AFB9204008FA782 /* PagedLists_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PagedLists_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };

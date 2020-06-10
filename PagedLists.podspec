@@ -16,7 +16,6 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/rootstrap/PagedLists.git', :tag => s.version.to_s }
   s.social_media_url = 'https://www.rootstrap.com/'
   
-
   s.ios.deployment_target = '9.3'
 
   s.source_files = 'PagedLists/Classes/**/*'
