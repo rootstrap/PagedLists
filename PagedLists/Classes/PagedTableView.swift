@@ -11,7 +11,11 @@ import UIKit
 public protocol PagedTableViewDelegate: class {
   // Required - Should not call this method directly or you will need to take care of
   // page update and flags status. Call loadContentIfNeeded instead
-  func loadTableData(page: Int, completion: (_ elementsAdded: Int, _ error: NSError?) -> Void)
+  func tableView(
+    _ tableView: PagedTableView,
+    needsDataForPage page: Int,
+    completion: (_ elementsAdded: Int, _ error: NSError?) -> Void
+  )
 }
 
 public enum PagingDirectionType {
@@ -52,13 +56,16 @@ open class PagedTableView: UITableView {
       return
     }
     isLoading = true
-    updateDelegate.loadTableData(page: currentPage, completion: { (newElements, error) in
-      self.isLoading = false
-      guard error == nil else {
-        return
-      }
-      self.currentPage += 1
-      self.hasMore = newElements == self.elementsPerPage
+    updateDelegate.tableView(
+      self,
+      needsDataForPage: currentPage,
+      completion: { (newElements, error) in
+        self.isLoading = false
+        guard error == nil else {
+          return
+        }
+        self.currentPage += 1
+        self.hasMore = newElements == self.elementsPerPage
     })
   }
   

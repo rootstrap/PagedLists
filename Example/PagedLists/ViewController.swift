@@ -60,7 +60,7 @@ class ViewController: UIViewController {
     view.addSubview(tableView)
     NSLayoutConstraint.activate([
       bottomLayoutGuide.topAnchor.constraint(equalTo: tableView.bottomAnchor),
-      view.leadingAnchor.constraint(equalTo: tableView.leadingAnchor),
+      tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       view.trailingAnchor.constraint(equalTo: tableView.trailingAnchor)
     ])
     
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
     view.addSubview(collectionView)
     NSLayoutConstraint.activate([
       topLayoutGuide.bottomAnchor.constraint(equalTo: collectionView.topAnchor),
-      view.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
+      collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       view.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
       collectionView.heightAnchor.constraint(equalToConstant:
         collectionCellHeight + collectionMargins * 2
@@ -81,7 +81,12 @@ class ViewController: UIViewController {
 // MARK: Pagination Delegates
 
 extension ViewController: PagedTableViewDelegate {
-  func loadTableData(page: Int, completion: (Int, NSError?) -> Void) {
+  func tableView(
+    _ tableView: PagedTableView,
+    needsDataForPage page: Int,
+    completion: (Int, NSError?) -> Void
+  ) {
+    // Typically request your data over network, update your data source and refresh UI
     totalTableRows += tableView.elementsPerPage
     completion(tableView.elementsPerPage, nil)
     tableView.reloadData()
@@ -89,7 +94,12 @@ extension ViewController: PagedTableViewDelegate {
 }
 
 extension ViewController: PagedCollectionViewDelegate {
-  func loadCollectionData(page: Int, completion: (Int, NSError?) -> Void) {
+  func collectionView(
+    _ collectionView: PagedCollectionView,
+    needsDataForPage page: Int,
+    completion: (Int, NSError?) -> Void)
+  {
+    // Typically request your data over network, update your data source and refresh UI
     totalCollectionItems += collectionView.elementsPerPage
     completion(collectionView.elementsPerPage, nil)
     collectionView.reloadData()
