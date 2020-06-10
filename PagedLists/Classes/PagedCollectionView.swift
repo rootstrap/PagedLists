@@ -11,8 +11,9 @@ import UIKit
 public protocol PagedCollectionViewDelegate: class {
   // Required - Should not call this method directly or you will need to take care of
   // page update and flags status. Call loadContentIfNeeded instead
-  func loadCollectionData(
-    page: Int,
+  func collectionView(
+    _ collectionView: PagedCollectionView,
+    needsDataForPage page: Int,
     completion: (_ elementsAdded: Int, _ error: NSError?) -> Void
   )
 }
@@ -53,13 +54,16 @@ open class PagedCollectionView: UICollectionView {
       return
     }
     isLoading = true
-    updateDelegate.loadCollectionData(page: currentPage, completion: { (newElements, error) in
-      self.isLoading = false
-      guard error == nil else {
-        return
-      }
-      self.currentPage += 1
-      self.hasMore = newElements == self.elementsPerPage
+    updateDelegate.collectionView(
+      self,
+      needsDataForPage: currentPage,
+      completion: { (newElements, error) in
+        self.isLoading = false
+        guard error == nil else {
+          return
+        }
+        self.currentPage += 1
+        self.hasMore = newElements == self.elementsPerPage
     })
   }
   
