@@ -11,7 +11,10 @@ import UIKit
 public protocol PagedCollectionViewDelegate: class {
   // Required - Should not call this method directly or you will need to take care of
   // page update and flags status. Call loadContentIfNeeded instead
-  func loadData(page: Int, completion: (_ elementsAdded: Int, _ error: NSError?) -> Void)
+  func loadCollectionData(
+    page: Int,
+    completion: (_ elementsAdded: Int, _ error: NSError?) -> Void
+  )
 }
 
 open class PagedCollectionView: UICollectionView {
@@ -28,14 +31,21 @@ open class PagedCollectionView: UICollectionView {
   
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
+    commonInit()
   }
   
   public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
     super.init(frame: frame, collectionViewLayout: layout)
+    commonInit()
   }
   
   public init(frame: CGRect) {
     super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
+    commonInit()
+  }
+  
+  private func commonInit() {
+    delegate = self
   }
   
   public func loadContentIfNeeded() {
@@ -43,7 +53,7 @@ open class PagedCollectionView: UICollectionView {
       return
     }
     isLoading = true
-    updateDelegate.loadData(page: currentPage, completion: { (newElements, error) in
+    updateDelegate.loadCollectionData(page: currentPage, completion: { (newElements, error) in
       self.isLoading = false
       guard error == nil else {
         return
@@ -106,7 +116,7 @@ open class PagedCollectionView: UICollectionView {
   }
 }
 
-extension PagedCollectionView: UIScrollViewDelegate {
+extension PagedCollectionView: UICollectionViewDelegate, UIScrollViewDelegate {
   
   public func scrollViewDidScroll(_ scrollView: UIScrollView) {
     if shouldLoadNewContent() {

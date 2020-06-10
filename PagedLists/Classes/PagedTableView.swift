@@ -11,7 +11,7 @@ import UIKit
 public protocol PagedTableViewDelegate: class {
   // Required - Should not call this method directly or you will need to take care of
   // page update and flags status. Call loadContentIfNeeded instead
-  func loadData(page: Int, completion: (_ elementsAdded: Int, _ error: NSError?) -> Void)
+  func loadTableData(page: Int, completion: (_ elementsAdded: Int, _ error: NSError?) -> Void)
 }
 
 public enum PagingDirectionType {
@@ -35,10 +35,16 @@ open class PagedTableView: UITableView {
   
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
+    commonInit()
   }
   
   public override init(frame: CGRect, style: UITableView.Style) {
     super.init(frame: frame, style: style)
+    commonInit()
+  }
+  
+  private func commonInit() {
+    delegate = self
   }
   
   public func loadContentIfNeeded() {
@@ -46,7 +52,7 @@ open class PagedTableView: UITableView {
       return
     }
     isLoading = true
-    updateDelegate.loadData(page: currentPage, completion: { (newElements, error) in
+    updateDelegate.loadTableData(page: currentPage, completion: { (newElements, error) in
       self.isLoading = false
       guard error == nil else {
         return
@@ -71,7 +77,7 @@ open class PagedTableView: UITableView {
   }
 }
 
-extension PagedTableView: UIScrollViewDelegate {
+extension PagedTableView: UITableViewDelegate, UIScrollViewDelegate {
   
   public func scrollViewDidScroll(_ scrollView: UIScrollView) {
     if direction == .atBottom {
