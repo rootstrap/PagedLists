@@ -6,6 +6,8 @@
 //  Copyright © 2020 Rootstrap Inc. All rights reserved.
 //
 import Foundation
+
+#if canImport(UIKit)
 import UIKit
 
 public protocol PagedCollectionViewDelegate: class {
@@ -128,3 +130,5 @@ extension PagedCollectionView: UICollectionViewDelegate, UIScrollViewDelegate {
     }
   }
 }
+
+#endif
