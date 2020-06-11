@@ -9,6 +9,7 @@
 [![Version](https://img.shields.io/cocoapods/v/PagedLists.svg?style=flat)](https://cocoapods.org/pods/PagedLists)
 [![License](https://img.shields.io/cocoapods/l/PagedLists.svg?style=flat)](https://cocoapods.org/pods/PagedLists)
 [![Platform](https://img.shields.io/cocoapods/p/PagedLists.svg?style=flat)](https://cocoapods.org/pods/PagedLists)
+[![Carthage](https://img.shields.io/badge/Carthage-compatible-success)](#installation)
 [![Swift Version](https://img.shields.io/badge/Swift%20Version-5.2-orange)](https://cocoapods.org/pods/PagedLists)
 
 ## Example
@@ -18,12 +19,27 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-PagedLists is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+1. Cocoapods
+
+**PagedLists** is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
+ 
 
 ```ruby
-pod 'PagedLists'
+
+pod 'PagedLists', '~> 0.1.0'
+
 ```
+
+2. Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+Add the following line to your `Cartfile` and follow the [installation instructions](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
+
+```
+github "rootstrap/PagedLists" ~> 0.1.0
+```
+
+Note: It is always recommended to lock your external libraries to a specific version.
 
 ## Example
 
