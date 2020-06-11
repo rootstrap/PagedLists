@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
   s.description      = <<-DESC
   Custom UITableView and UICollectionView classes to easily handle pagination.
-  Mutiple scrolling direction pagination supported.
+  Multiple scrolling directions for pagination supported.
   Uses delegation to load content from your desired source.
                        DESC
 
