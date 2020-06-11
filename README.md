@@ -27,7 +27,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ```ruby
 
-pod 'PagedLists', '~> 0.1.0'
+pod 'PagedLists', '~> 1.0.0'
 
 ```
 
@@ -37,18 +37,17 @@ pod 'PagedLists', '~> 0.1.0'
 Add the following line to your `Cartfile` and follow the [installation instructions](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
 
 ```
-github "rootstrap/PagedLists" ~> 0.1.0
+github "rootstrap/PagedLists" ~> 1.0.0
 ```
 
 3. Swift Package Manager
 
 - In XCode 11, go to File -> Swift Packages -> Add Package Dependency.
 - Enter the repo URL(https://github.com/rootstrap/PagedLists) and click Next.
-- Select the version rule desired(you can specify a version number, branch or commit) and click Next.
+- Select the version rule desired(you can specify a version number, branch or commit) and click Next. This library supports SPM starting from the version 1.0.0.
 - Finally, select the target where you want to use the framework.
 
 That should be it. **PagedLists** should appear in the navigation panel as a dependency and the framework will be linked automatically to your target.
-
 
 
 **Note:** It is always recommended to lock your external libraries to a specific version.
